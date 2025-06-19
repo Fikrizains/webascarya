@@ -2757,3 +2757,22 @@ footer .bottom-footer p a {
   background: #000;
   border-color: #000;
 }
+
+@media (max-width: 768px) {
+  .bottom-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .bottom-header .logo {
+    width: 50%;
+  }
+
+  .bottom-header .right-side {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
