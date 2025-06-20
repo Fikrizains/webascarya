@@ -449,13 +449,13 @@
                   <!-- /.col- -->
 
                   <div class="col-lg-7 col-sm-6">
-                    <form action="#">
-                      <input type="text" placeholder="Name" />
-                      <input type="text" placeholder="Email" />
-                      <input type="text" placeholder="Subject" />
-                      <textarea placeholder="Message"></textarea>
-                      <button class="tran3s">Send</button>
-                    </form>
+                    <form onsubmit="return sendToWhatsapp()" novalidate>
+  <input placeholder="Nama" type="text" id="name" required />
+  <input placeholder="Email" type="email" id="email" required />
+  <input placeholder="Subjek" type="text" id="subject" required />
+  <textarea placeholder="Pesan" id="message" required></textarea>
+  <button class="tran3s" type="submit">Kirim</button>
+</form>
                   </div>
                 </div>
                 <!-- /.row -->
@@ -590,5 +590,56 @@
       <script type="text/javascript" src="js/theme.js"></script>
     </div>
     <!-- /.main-page-wrapper -->
+     <script>
+  function sendToWhatsapp() {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const subject = document.getElementById("subject");
+    const message = document.getElementById("message");
+
+    // Reset semua pesan validasi
+    name.setCustomValidity("");
+    email.setCustomValidity("");
+    subject.setCustomValidity("");
+    message.setCustomValidity("");
+
+    let valid = true;
+
+    if (!name.value.trim()) {
+      name.setCustomValidity("Nama wajib diisi.");
+      name.reportValidity();
+      valid = false;
+    } else if (!email.value.trim()) {
+      email.setCustomValidity("Email wajib diisi.");
+      email.reportValidity();
+      valid = false;
+    } else {
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+      if (!emailPattern.test(email.value)) {
+        email.setCustomValidity("Masukkan email yang valid.");
+        email.reportValidity();
+        valid = false;
+      } else if (!subject.value.trim()) {
+        subject.setCustomValidity("Subjek wajib diisi.");
+        subject.reportValidity();
+        valid = false;
+      } else if (!message.value.trim()) {
+        message.setCustomValidity("Pesan wajib diisi.");
+        message.reportValidity();
+        valid = false;
+      }
+    }
+
+    if (!valid) return false;
+
+    const text = `Halo, saya ${name.value}%0AEmail: ${email.value}%0ASubjek: ${subject.value}%0APesan: ${message.value}`;
+    const phone = "6287709880425";
+    const url = `https://wa.me/${phone}?text=${text}`;
+
+    window.open(url, "_blank");
+    return false;
+  }
+</script>
+
   </body>
 </html>

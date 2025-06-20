@@ -1731,6 +1731,16 @@ footer .bottom-footer p {
 footer .bottom-footer p a {
   text-transform: lowercase;
 }
+input,
+textarea {
+  color: black; /* Warna teks saat diketik */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999; /* Warna placeholder */
+}
+
 /*=============================== Inner Banner =========================*/
 .inner-banner {
   padding-bottom: 10px;
