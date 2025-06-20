@@ -1735,7 +1735,7 @@ footer .bottom-footer p a {
   margin-bottom: 100px;
 }
 .inner-banner .opacity {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(31, 208, 252, 0.75);
   height: 100%;
   padding: 115px 0 75px 0;
   position: relative;
@@ -2756,23 +2756,4 @@ footer .bottom-footer p a {
 .error-page a:hover {
   background: #000;
   border-color: #000;
-}
-
-@media (max-width: 768px) {
-  .bottom-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .bottom-header .logo {
-    width: 50%;
-  }
-
-  .bottom-header .right-side {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-  }
 }
